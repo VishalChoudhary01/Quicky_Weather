@@ -6,17 +6,6 @@ In VITE not work
  process.env.URL_KEY
  */
 
-//  AT start
-const card = document.querySelector(".card");
-
-card.style.height = "80px";
-card.style.overflow = "hidden";
-
-// card open for give height dynamically
-
-function CardOpen(height) {
-  card.style.height = height;
-}
 
 async function weatherAPI(lati, long, city) {
   let urlAd;
@@ -47,6 +36,19 @@ const FerhaBtn = document.querySelector(".tempF");
 const DegreeFeel = document.querySelector(".degree_feel");
 const bodyBG = document.querySelector("body");
 const weatherImage = document.querySelector(".weatherIcon");
+
+//  AT start
+const weatherDetailWrapp=document.querySelector(".weatherDetails")
+weatherDetailWrapp.style.height="0";
+weatherDetailWrapp.style.width="0";
+weatherDetailWrapp.style.overflow="hidden"
+
+// card open for give height dynamically
+function weatherDetailOpen(height,width){
+weatherDetailWrapp.style.height=height;
+weatherDetailWrapp.style.width=width
+}
+
 
 let currentData;
 async function FinalData(data) {
@@ -153,7 +155,7 @@ async function FinalData(data) {
       const fullDateSunset = new Date(currentData.sys.sunset * 1000);
       const sunriseHour = fullDateSunrise.getHours();
       const sunsetHour = fullDateSunset.getHours();
-      if (localHour >= sunriseHour && localHour <= sunsetHour) {
+      if (localHour >= sunriseHour && localHour < sunsetHour) {
         console.log("local Time", localHour, "sunset", sunsetHour);
         console.log("day");
         bodyBG.style.background = `var(--body-light-background)`;
@@ -187,7 +189,7 @@ async function showCoord(positions) {
   const longi = positions.coords.longitude;
   await FinalData(weatherAPI(lati, longi));
   // card open
-  CardOpen("65vh");
+  weatherDetailOpen("50vh","100%")
 }
 
 // when DOM loaded get location
@@ -202,8 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
   // card details open
-  CardOpen("65vh");
-
+  weatherDetailOpen("50vh","100%")
   if (inputBox.value) {
     inputBox.placeholder = inputBox.value;
     FinalData(weatherAPI(null, null, inputBox.value));
@@ -216,7 +217,7 @@ inputBox.addEventListener("keydown", (e) => {
     e.preventDefault();
 
     // card details opens
-    CardOpen("65vh");
+    weatherDetailOpen("50vh","100%")
 
     if (inputBox.value) {
       inputBox.placeholder = inputBox.value;

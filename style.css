@@ -58,7 +58,7 @@ body {
   margin-top: 2%;
   width: 40%;
   height: 0;
-  /* height: 75%; */
+  height: 75%;
   background: var(--card-background);
   backdrop-filter: blur(1px);
   border-radius: 10px;
