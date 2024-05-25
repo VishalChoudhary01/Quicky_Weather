@@ -531,11 +531,11 @@ p:nth-of-type(2) {
   }
   
   .bottom{
-    height: 60px;
+    height: 50px;
   }
 
   .thirdSection .wind_humidity {
-    height: 60px;
+    height: 50px;
     justify-content: space-around;
   }
 
@@ -565,7 +565,7 @@ p:nth-of-type(2) {
   }
 
   .address{
-    height: 50px;
+    height: 40px;
   }
  
 }
