@@ -189,7 +189,7 @@ async function showCoord(positions) {
   const longi = positions.coords.longitude;
   await FinalData(weatherAPI(lati, longi));
   // card open
-  weatherDetailOpen("60vh","100%")
+  weatherDetailOpen("70vh","100%")
 }
 
 // when DOM loaded get location
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
   // card details open
-  weatherDetailOpen("60vh","100%")
+  weatherDetailOpen("70vh","100%")
   if (inputBox.value) {
     inputBox.placeholder = inputBox.value;
     FinalData(weatherAPI(null, null, inputBox.value));
@@ -217,7 +217,7 @@ inputBox.addEventListener("keydown", (e) => {
     e.preventDefault();
 
     // card details opens
-    weatherDetailOpen("60vh","100%")
+    weatherDetailOpen("70vh","100%")
 
     if (inputBox.value) {
       inputBox.placeholder = inputBox.value;

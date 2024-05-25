@@ -531,11 +531,11 @@ p:nth-of-type(2) {
   }
   
   .bottom{
-    height: 50px;
+    height: 40px;
   }
 
   .thirdSection .wind_humidity {
-    height: 50px;
+    height: 40px;
     justify-content: space-around;
   }
 
@@ -555,7 +555,7 @@ p:nth-of-type(2) {
 
   }
   .sunset_sunrise{
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
   }
