@@ -555,7 +555,7 @@ p:nth-of-type(2) {
 
   }
   .sunset_sunrise{
-    height: 60px;
+    height: 50px;
     display: flex;
     align-items: center;
   }
