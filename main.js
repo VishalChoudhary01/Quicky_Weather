@@ -36,17 +36,26 @@ const FerhaBtn = document.querySelector(".tempF");
 const DegreeFeel = document.querySelector(".degree_feel");
 const bodyBG = document.querySelector("body");
 const weatherImage = document.querySelector(".weatherIcon");
+const firstSection=document.querySelector(".upper")
+const secondSection=document.querySelector(".bottom");
+const thirdSection=document.querySelector(".thirdSection")
+const fourthSection=document.querySelector(".sunset_sunrise")
+const fifthSection=document.querySelector(".address")
+
 
 //  AT start
-const weatherDetailWrapp=document.querySelector(".weatherDetails")
-weatherDetailWrapp.style.height="0";
-weatherDetailWrapp.style.width="0";
-weatherDetailWrapp.style.overflow="hidden"
-
-// card open for give height dynamically
-function weatherDetailOpen(height,width){
-weatherDetailWrapp.style.height=height;
-weatherDetailWrapp.style.width=width
+firstSection.style.display="none"
+secondSection.style.display="none"
+thirdSection.style.display="none"
+fourthSection.style.display="none"
+fifthSection.style.display="none"
+// details showing function
+function ShownDetails(displayType){
+  firstSection.style.display=displayType
+  secondSection.style.display=displayType
+  thirdSection.style.display=displayType
+  fourthSection.style.display=displayType
+  fifthSection.style.display=displayType
 }
 
 
@@ -188,8 +197,8 @@ async function showCoord(positions) {
   const lati = positions.coords.latitude;
   const longi = positions.coords.longitude;
   await FinalData(weatherAPI(lati, longi));
-  // card open
-  weatherDetailOpen("70vh","100%")
+  // details function open 
+  ShownDetails("flex");
 }
 
 // when DOM loaded get location
@@ -203,8 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
-  // card details open
-  weatherDetailOpen("70vh","100%")
+  // details function open 
+  ShownDetails("flex");
+
   if (inputBox.value) {
     inputBox.placeholder = inputBox.value;
     FinalData(weatherAPI(null, null, inputBox.value));
@@ -216,9 +226,9 @@ inputBox.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
 
-    // card details opens
-    weatherDetailOpen("70vh","100%")
-
+    // details function open 
+  ShownDetails("flex");
+  
     if (inputBox.value) {
       inputBox.placeholder = inputBox.value;
       FinalData(weatherAPI(null, null, inputBox.value));
