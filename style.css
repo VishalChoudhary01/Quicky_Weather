@@ -258,6 +258,12 @@ p:nth-of-type(2) {
   justify-content: end;
   text-shadow: 0 0 2px #888484;
 }
+.degree_feel h4{
+  font-size: 16px;
+  font-weight: 400;
+  
+}
+
 
 /* Third row */
 .thirdSection {
