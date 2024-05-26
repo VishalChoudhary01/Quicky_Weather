@@ -41,8 +41,6 @@ const secondSection=document.querySelector(".bottom");
 const thirdSection=document.querySelector(".thirdSection")
 const fourthSection=document.querySelector(".sunset_sunrise")
 const fifthSection=document.querySelector(".address")
-
-
 //  AT start
 firstSection.style.display="none"
 secondSection.style.display="none"
@@ -50,7 +48,7 @@ thirdSection.style.display="none"
 fourthSection.style.display="none"
 fifthSection.style.display="none"
 // details showing function
-function ShownDetails(displayType){
+function ShownDetails(displayType,transp){
   firstSection.style.display=displayType
   secondSection.style.display=displayType
   thirdSection.style.display=displayType
@@ -164,14 +162,21 @@ async function FinalData(data) {
       const fullDateSunset = new Date(currentData.sys.sunset * 1000);
       const sunriseHour = fullDateSunrise.getHours();
       const sunsetHour = fullDateSunset.getHours();
-      if (localHour >= sunriseHour && localHour < sunsetHour) {
-        console.log("local Time", localHour, "sunset", sunsetHour);
-        console.log("day");
+      
+      if(localHour >= sunriseHour && localHour < sunsetHour){
+      //   console.log("day");
+
         bodyBG.style.background = `var(--body-light-background)`;
-      } else if (localHour >= sunsetHour) {
-        console.log("Night");
+
+      }else{
+      //   console.log("Night");
+
         bodyBG.style.background = `var(--body-dark-background)`;
+
       }
+      //   console.log("local Time", localHour, "sunset", sunsetHour);
+
+
     }
     // backgroundChange on current city
     backgroundChanger();

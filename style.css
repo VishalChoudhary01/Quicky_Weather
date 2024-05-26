@@ -25,9 +25,12 @@ body {
   width: 100%;
   height: 100%;
   background: #00373d;
+  /* background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%); */
   display: flex;
+
   justify-content: center;
   align-items: center;
+  transition: background 1.2s ease-in;
 
 }
 .wrapper {
