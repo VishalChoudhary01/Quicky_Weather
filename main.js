@@ -76,7 +76,7 @@ async function FinalData(data) {
       ? (W_ImgSrc = "./Images/rainy-day.png")
       : W_Condition === "Haze"
       ? (W_ImgSrc = "./Images/haze.png")
-      : "./Images/thunder.png";
+      : W_Condition==="Mist"?(W_ImgSrc="./Images/hail.png"):(W_ImgSrc="./Images/thunder.png");
 
     // adding image source
     weatherImage.innerHTML = `<img src=${W_ImgSrc} alt="" />`;
@@ -103,8 +103,9 @@ async function FinalData(data) {
 
     // ferha converstion
     const Fahrenheit = Math.ceil((currentData.main.temp * 9) / 5 + 32);
+    const FahrenheitFeel=Math.ceil((currentData.main.feels_like * 9) / 5 + 32)
     FerhaBtn.addEventListener("click", () => {
-      DegreeChange.innerHTML = `<p>${Fahrenheit}</p><span>°F</span>`;
+      DegreeChange.innerHTML = `<p>${FahrenheitFeel}</p><span>°F</span>`;
       CelciusBtn.classList.remove("active");
       FerhaBtn.className = "active";
 
