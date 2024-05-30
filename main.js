@@ -95,15 +95,15 @@ async function FinalData(data) {
       FerhaBtn.classList.remove("active");
       CelciusBtn.className = "active";
       //  feel like degree
-      DegreeFeel.innerHTML = `<h4>Feel Like: <span>${Math.ceil(
+      DegreeFeel.innerHTML = `<h4>Feel Like: <span>${Math.round(
         currentData.main.feels_like
       )}</span></h4>
         <span>°C</span>`;
     });
 
     // ferha converstion
-    const Fahrenheit = Math.ceil((currentData.main.temp * 9) / 5 + 32);
-    const FahrenheitFeel=Math.ceil((currentData.main.feels_like * 9) / 5 + 32)
+    const Fahrenheit = Math.round((currentData.main.temp * 9) / 5 + 32);
+    const FahrenheitFeel=Math.round((currentData.main.feels_like * 9) / 5 + 32)
     FerhaBtn.addEventListener("click", () => {
       DegreeChange.innerHTML = `<p>${FahrenheitFeel}</p><span>°F</span>`;
       CelciusBtn.classList.remove("active");
